@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-# Примітка: 'from typing import Any' більше не потрібен
-
 
 class Distance:
     def __init__(self, km: float) -> None:
@@ -31,13 +29,13 @@ class Distance:
             return NotImplemented
         return self
 
-    def __mul__(self, other: Distance | int | float) -> Distance:
+    def __mul__(self, other: int | float) -> Distance:
         if isinstance(other, (int, float)):
             new_km = self.km * other
             return self.__class__(new_km)
         return NotImplemented
 
-    def __truediv__(self, other: Distance | int | float) -> Distance:
+    def __truediv__(self, other: int | float) -> Distance:
         if isinstance(other, (int, float)):
             new_km = round(self.km / other, 2)
             return self.__class__(new_km)
